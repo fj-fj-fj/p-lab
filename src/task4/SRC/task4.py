@@ -22,5 +22,15 @@ def compare_two_strings(str1: str, str2: str) -> str:
     Checks two strings for identity.
     Asterisk(if it exists in `str2`) replaces any number of any characters.
     """
+    if '*' not in str2 and len(str1) != len(str2): return print('KO')
 
-compare_two_strings(sys.argv[1], sys.argv[2])
+    for s1, s2 in zip(str1, str2):
+        if s2 == '*': return print('OK')
+        if s1 != s2: return print('KO')
+
+    return print('OK')
+
+try: compare_two_strings(sys.argv[1], sys.argv[2])
+except IndexError: print('py task4.py <str1>? <str2>?')
+
+print('Program finished')
